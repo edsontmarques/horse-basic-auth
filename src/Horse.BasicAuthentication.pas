@@ -114,7 +114,7 @@ begin
 
   LBasicAuthenticationEncode := Req.Headers[Config.Header];
   
-  //* 03-01-2023 - the authentication Header under Apache Module must be readed from "RawWebRequest" .....
+  //* 03-01-2023 - the authentication Header under Apache Module must be read from "RawWebRequest" .....
   if LBasicAuthenticationEncode.Trim.IsEmpty then LBasicAuthenticationEncode := Req.RawWebRequest.GetFieldByName(Config.Header);  
 
   if LBasicAuthenticationEncode.Trim.IsEmpty and not Req.Query.TryGetValue(Config.Header, LBasicAuthenticationEncode) then
